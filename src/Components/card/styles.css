@@ -1,0 +1,77 @@
+.card {
+  flex: 290px 1 1;
+  padding: 0.75em;
+  border-radius: 5px;
+  box-shadow: 2px 3px 6px 2px #9a9a9ade;
+  margin: 1em 0.3em;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0.2em;
+}
+
+.card ul li {
+  margin-bottom: 0.3em;
+}
+
+.card strong {
+  display: block;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+  color: #111;
+}
+
+.card input {
+  width: 100%;
+  padding: 5px 2px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+.card input:read-only {
+  border-color: transparent;
+}
+.buttons_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.button {
+  background-color: transparent;
+  padding: 0.1em;
+  margin: 0.2em;
+  border: none;
+  font-size: 25px;
+  /* border-radius: 5px; */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit {
+  color: #6790ff;
+}
+
+.edit:hover {
+  color: #1e5aff;
+}
+.delete {
+  color: #ff6567;
+}
+.delete:hover {
+  color: #ff2929;
+}
+.confirm {
+  color: #25c92d;
+}
+.confirm:hover {
+  color: #64eb6b;
+}
+.cancel {
+  color: #434743;
+}
+.cancel:hover {
+  color: #7b7e7b;
+}
