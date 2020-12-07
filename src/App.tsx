@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import CardsContainer from "./Components/cardsContainer/CardsContainer";
+import Intro from "./Components/intro/Intro";
+import AppContext from "./context";
+const App: React.FC = () => {
+  const [users, setUsers] = useState<[] | any>([]);
 
-function App() {
+  const start_task = (data: []) => {
+    setUsers(data);
+  };
+
+  const deleteUser = (id: number) => {
+    const new_users: {}[] = users.filter(
+      (user: { id: number }) => user.id !== id
+    );
+    setUsers(new_users);
+  };
+
+  const updateUser = (
+    name: string,
+    username: string,
+    email: string,
+    phone: string,
+    id: number
+  ) => {
+    const new_users = users.map((user: { id: number }) => {
+      if (user.id === id) {
+        return {
+          ...user,
+          name,
+          username,
+          email,
+          phone,
+        };
+      } else {
+        return user;
+      }
+    });
+
+    setUsers(new_users);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AppContext.Provider
+        value={{ users, deleteUser, updateUser, start_task }}
+      >
+        <Intro />
+        <CardsContainer />
+      </AppContext.Provider>
     </div>
   );
-}
+};
 
 export default App;
